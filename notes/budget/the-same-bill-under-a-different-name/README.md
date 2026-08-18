@@ -1,30 +1,40 @@
-# I fixed it, measured a 75.6% drop, and the same thing was still running
+# The fix worked and the bill fell short of what it should have
 
 > Layer: `budget`
 
 ## What happened
 
-I had spent a week on one connection that was holding a serverless instance
-open and billing for every second of it. I shipped the fix, measured the same
-clock hour three days later with the same method, and the bill for that hour
-went from eighteen cents to four.
+I had spent a week on one connection that was holding a serverless instance open
+and billing for every second of it. I shipped the fix and measured the same clock
+hour three days later with the same method. The connection is gone and the bill
+for that hour went from eighteen cents to four.
 
 ```
-billed instance time    3,389.0 s  ->  826.1 s     (75.6% less)
-the connection I fixed  3,000.0 s  ->  endpoint unused
+the connection I fixed  3,000.0 s  ->      1.5 s   over 240 ordinary polls
+billed instance time    3,389.0 s  ->    826.1 s   75.6% less
 ```
 
-Then I looked at what was left, and 97% of it was the same pattern running on a
-different connection.
+That last number is the entry. The connection I removed was 99.6% of the request
+seconds in the before window. Removing it should have taken the bill down by
+something close to that. It took it down 75.6%.
+
+The shortfall is not rounding. It is a second connection doing the same thing,
+and it was 97% of everything left.
 
 ## What I assumed
 
-That a large drop is evidence the problem is gone. It is not. It is evidence
-that one instance of the problem is gone, and those two look identical from the
-headline.
+That measuring one endpoint precisely was the same as measuring the problem. I
+could name the connection, quote its lifecap in milliseconds, and price an hour
+of it to the cent. That precision is what made it feel finished. It was a
+symptom described to four decimal places.
 
-I also assumed I had a full picture of the hour, because I had a table with
-every request in it. I did have every request. One row of that table was called
+The tell was there in the prediction and I nearly let it go. I expected the bill
+to fall about as far as the connection's share, near enough to ninety nine
+percent, and it fell seventy five. If I had not written the prediction down
+first, seventy five percent is a number I would have been delighted by.
+
+I also assumed I had a full picture of the hour, because I had a table with every
+request in it. I did have every request. One row of that table was called
 "everything else", I had never opened it, and by the end of this it was the
 entire bill.
 
@@ -63,8 +73,9 @@ For the first forty minutes of that hour the app sat holding nothing and cost
 ## What I changed
 
 Not the code, yet. What I changed first was how I verify a fix, because the code
-change I was about to make was the same one I had just made, and I would have
-shipped it believing it was finished for the second time.
+change I was about to make was the same one I had just made, and without the
+shortfall to argue with I would have shipped it believing it was finished for the
+second time.
 
 The rule now: after a fix, measure the same window with the same method, and
 attribute the remainder before touching anything. Not the delta, the remainder.

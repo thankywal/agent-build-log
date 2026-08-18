@@ -19,9 +19,11 @@ Twenty five minutes, to within seven milliseconds. One request.
 
 ## What I assumed
 
-That the recurring work was the expensive part. I had scheduled jobs running all
-day and I was most of the way through planning a refactor to batch them, because
-that is the obvious suspect when a bill keeps climbing.
+That the recurring work was the expensive part. I had put the scheduled jobs at
+about forty dollars a month, I was most of the way through planning a refactor to
+batch them, and that plan was a dozen changed files deep. They cost fifteen
+cents. Recurring work is the obvious suspect when a bill keeps climbing, and it
+was the wrong suspect.
 
 Then, once I had seen the connection, I assumed I could simply delete it. A poll
 already ran every twelve seconds, so the stream looked redundant. Wrong again,
@@ -52,14 +54,17 @@ reason to take the denominator from somewhere other than your own request log.
 Sum your logs and divide by your logs and you will confirm whatever you already
 thought.
 
-The refactor I was planning was worth a tenth of one percent. It was
+The refactor I was planning was worth a tenth of one percent, or in the currency
+I actually cared about, zero dollars and a dozen changed files. It was
 worth less than that, actually: inside that hour the jobs were free, because
 they ran during time the open connection was already paying for.
 
 Two rows out of six hundred and ninety eight were the entire bill.
 
 So I asked a sharper question. Not what holds the instance alive, but what those
-seconds bought. Eight connections, back to back:
+seconds bought. Eight connections, back to back, across three and a third hours,
+which is a wider window than the table above and deliberately so: twenty five
+minutes each is more than fits in an hour.
 
 ```
 connections                              8
