@@ -21,6 +21,7 @@ so you can lift a file and use it.
 | Layer | Entry | What broke |
 |---|---|---|
 | wire | [tool call as text](notes/wire/tool-call-as-text) | the model wrote the call out instead of emitting one |
+| budget | [keepalives at full price](notes/budget/keepalives-at-full-price) | half the connections carried nothing and still billed twenty five minutes each |
 
 _(more as they happen)_
 
@@ -28,13 +29,13 @@ _(more as they happen)_
 
 The spine is where a failure lives, not when it happened.
 
-- **wire** — the shape the model actually returns
-- **arguments** — what travels inside a call, and back again as history
-- **loop** — deciding whether a turn is finished
-- **budget** — tokens, and who gets to spend them
-- **surface** — how many tools the model can actually see
-- **prompt** — instructions that cannot all be obeyed
-- **transport** — getting the result to a person
+- **wire**: the shape the model actually returns
+- **arguments**: what travels inside a call, and back again as history
+- **loop**: deciding whether a turn is finished
+- **budget**: tokens, and who gets to spend them
+- **surface**: how many tools the model can actually see
+- **prompt**: instructions that cannot all be obeyed
+- **transport**: getting the result to a person
 
 ## Adding an entry
 
