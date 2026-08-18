@@ -107,6 +107,20 @@ the diff to object to. When a bill surprises you, the question is not which line
 is wrong. It is which number the code was written to make smaller, and whether
 that is the number you are paying for.
 
+## The queries
+
+Both sides of every ratio above, so the numbers can be checked rather than
+believed. The numerator is the request log, the denominator is a different API
+entirely. Divide request seconds by request seconds and you will prove whatever
+you already believe.
+
+```
+GCP_PROJECT=your-project SERVICE=your-service STREAM_PATH=/your/stream \
+  ./measure.sh 2026-08-12
+
+GCP_PROJECT=your-project SERVICE=your-service ./billable.sh 2026-08-12
+```
+
 ---
 
-Code: [`index.ts`](index.ts) · Test: [`index.test.ts`](index.test.ts)
+Code: [`index.ts`](index.ts) · Test: [`index.test.ts`](index.test.ts) · Queries: [`measure.sh`](measure.sh), [`billable.sh`](billable.sh)

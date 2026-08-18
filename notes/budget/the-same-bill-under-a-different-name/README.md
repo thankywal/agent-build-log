@@ -96,4 +96,4 @@ is not a measurement, it is a place to put things you have stopped looking at.
 
 ---
 
-Code: [`index.ts`](index.ts) · Test: [`index.test.ts`](index.test.ts)
+Code: [`index.ts`](index.ts) · Test: [`index.test.ts`](index.test.ts) · Queries: [`measure.sh`](../keepalives-at-full-price/measure.sh), [`billable.sh`](../keepalives-at-full-price/billable.sh), run once per window
