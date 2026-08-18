@@ -22,6 +22,7 @@ so you can lift a file and use it.
 |---|---|---|
 | wire | [tool call as text](notes/wire/tool-call-as-text) | the model wrote the call out instead of emitting one |
 | budget | [keepalives at full price](notes/budget/keepalives-at-full-price) | half the connections carried nothing and still billed twenty five minutes each |
+| budget | [the same bill under a different name](notes/budget/the-same-bill-under-a-different-name) | the fix worked, and 97% of what was left was the same pattern on another connection |
 
 _(more as they happen)_
 
