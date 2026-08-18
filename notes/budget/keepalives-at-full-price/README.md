@@ -36,14 +36,23 @@ I measured one hour, taking each side of the ratio from an independent source:
 the numerator from the request log, the denominator from the billing metric.
 
 ```
-                            n       seconds     share
-scheduled jobs             54           2.9     0.09%
-event stream                2       3,000.0     99.6%
-everything else           642           8.4      0.3%
+                            n       seconds      share
+event stream                2       3,000.0      99.6%
+everything else           642           8.4       0.3%
+scheduled jobs             54           2.9       0.1%
+summed request seconds               3,011.3
 billed instance time                 3,389.0
 ```
 
-The refactor I was planning was worth nine hundredths of one percent. It was
+Two denominators there, and they are deliberately not the same number. The
+shares are of the 3,011.3 seconds the request log can account for. Billed
+instance time is 3,389.0 and comes from a different API entirely. The 377.7
+seconds between them is billed time that no request claims, and that gap is the
+reason to take the denominator from somewhere other than your own request log.
+Sum your logs and divide by your logs and you will confirm whatever you already
+thought.
+
+The refactor I was planning was worth a tenth of one percent. It was
 worth less than that, actually: inside that hour the jobs were free, because
 they ran during time the open connection was already paying for.
 

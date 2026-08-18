@@ -22,7 +22,7 @@ const AFTER: MeasuredWindow = {
   buckets: [
     { label: 'everything else', requests: 550, seconds: 807.5 },
     { label: 'scheduled jobs', requests: 54, seconds: 2.7 },
-    { label: 'event stream poll', requests: 240, seconds: 1.5 },
+    { label: 'event stream', requests: 240, seconds: 1.5 },
   ],
 };
 
@@ -33,7 +33,7 @@ const AFTER_DRILLED: MeasuredWindow = {
     { label: 'live socket', requests: 8, seconds: 787.2 },
     { label: 'everything else', requests: 542, seconds: 20.3 },
     { label: 'scheduled jobs', requests: 54, seconds: 2.7 },
-    { label: 'event stream poll', requests: 240, seconds: 1.5 },
+    { label: 'event stream', requests: 240, seconds: 1.5 },
   ],
 };
 
@@ -43,8 +43,10 @@ describe('what the bill is made of after a fix', () => {
 
     expect(r.reduction).toBeCloseTo(0.756, 3); // 75.6%
     expect(r.target?.beforeSeconds).toBe(3000.0);
-    expect(r.target?.afterSeconds).toBe(0); // the endpoint went unused
-    expect(r.target?.reduction).toBe(1);
+    // Same bucket, still there, now carrying 240 ordinary polls instead of two
+    // connections held open for twenty five minutes each.
+    expect(r.target?.afterSeconds).toBe(1.5);
+    expect(r.target?.reduction).toBeCloseTo(0.9995, 4);
   });
 
   it('names the bucket that is now the entire bill', () => {
@@ -75,10 +77,6 @@ describe('what the bill is made of after a fix', () => {
 
     expect(socket?.beforeSeconds).toBeNull();
     expect(socket?.grew).toBe(false);
-
-    const poll = r.residual.find((b) => b.label === 'event stream poll');
-    expect(poll?.beforeSeconds).toBeNull();
-    expect(poll?.grew).toBe(false);
   });
 
   it('does report growth where both windows measured the same bucket', () => {

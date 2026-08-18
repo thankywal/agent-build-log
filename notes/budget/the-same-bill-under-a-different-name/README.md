@@ -33,19 +33,21 @@ entire bill.
 Here are both hours, same clock window, three days apart.
 
 ```
-before                      n     seconds        after                    n    seconds
-event stream                2     3,000.0        everything else        550      807.5
-everything else           642         8.4        scheduled jobs          54        2.7
-scheduled jobs             54         2.9        event stream poll      240        1.5
-billed                            3,389.0        billed                            826.1
+before                    n     seconds        after                   n     seconds
+event stream              2     3,000.0        everything else       550       807.5
+everything else         642         8.4        scheduled jobs         54         2.7
+scheduled jobs           54         2.9        event stream          240         1.5
+summed                        3,011.3        summed                           811.7
+billed                        3,389.0        billed                           826.1
 ```
 
-The thing I set out to kill is dead. The bucket I never looked at went from 8.4
-seconds to 807.5, and it was now 99% of every second still on the bill.
+The thing I set out to kill is dead. That row is still there and now carries 240
+ordinary polls in a second and a half. The bucket I never looked at went from
+8.4 seconds to 807.5, which is 99% of every request second that remained.
 
 So I split it, and there was a second connection doing exactly what the first
-one did. Eight requests, six sessions, 787.2 seconds, 97.0% of everything
-remaining. Its own comment in the source describes it as a lightweight listener
+one did. Eight requests, six sessions, 787.2 seconds, 97.0% of the 811.7
+request seconds that were left. Its own comment in the source describes it as a lightweight listener
 kept open while a screen is open, waiting for one event that is a refetch
 trigger and nothing more.
 
