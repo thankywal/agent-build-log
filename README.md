@@ -25,6 +25,7 @@ so you can lift a file and use it.
 | budget | [the same bill under a different name](notes/budget/the-same-bill-under-a-different-name) | the fix worked, the bill fell short of it, and the shortfall was a second connection |
 | loop | [the limit the user read](notes/loop/the-limit-the-user-read) | two counters disagreed about the same instant, and the refusal reached the user as prose |
 | budget | [the jobs that were asleep](notes/budget/the-jobs-that-were-asleep) | timers inside a service that scaled to zero ran in a quarter of the day, and keeping them awake became the largest line on the bill |
+| prompt | [the schema the tool could not read](notes/prompt/the-schema-the-tool-could-not-read) | the prompt described the database with the application's rights, the tool queried with its own, and what the prompt taught was refused |
 
 _(more as they happen)_
 
