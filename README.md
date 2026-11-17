@@ -24,6 +24,7 @@ so you can lift a file and use it.
 | budget | [keepalives at full price](notes/budget/keepalives-at-full-price) | half the connections carried nothing and still billed twenty five minutes each |
 | budget | [the same bill under a different name](notes/budget/the-same-bill-under-a-different-name) | the fix worked, the bill fell short of it, and the shortfall was a second connection |
 | loop | [the limit the user read](notes/loop/the-limit-the-user-read) | two counters disagreed about the same instant, and the refusal reached the user as prose |
+| budget | [the jobs that were asleep](notes/budget/the-jobs-that-were-asleep) | timers inside a service that scaled to zero ran in a quarter of the day, and keeping them awake became the largest line on the bill |
 
 _(more as they happen)_
 
