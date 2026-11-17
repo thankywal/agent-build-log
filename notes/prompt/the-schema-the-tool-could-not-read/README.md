@@ -26,6 +26,11 @@ ERROR:  column r.shop_name does not exist
 ERROR:  column "shop_name" does not exist
 ```
 
+One note on the evidence. My log keeps only the first few hundred characters of
+each result. The first three lines are read from it. The fourth is cut off
+there. What the log does keep is the query, which is the first one sent again,
+and its exit code, which is 1.
+
 ## What I assumed
 
 That the cheaper model had ignored the schema I gave it.
