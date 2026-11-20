@@ -68,23 +68,17 @@ because the totals were the judge's own words.
 
 ## What I changed
 
-The judge, before anything else. It no longer lists what is wrong. It says what
-a right answer is made of: the scripts it is written in, the text that is right
-in any language (the customer's own name, a product, an address), and what may
-sit beside them, like a currency code inside a Chinese sentence. Every other
-letter makes the answer wrong, and the verdict shows the letters.
+On the day, the narrow thing. I added Chinese to the list, and I made the judge
+take the customer's own name out before it counted, because greeting someone by
+name is right.
 
 Then the run. Every run now carries messages that the change could break, and
 not only the ones it is meant to fix: English with a Chinese, Japanese, Thai or
 Burmese name typed into it, a profile name in another script, an address in
 another script. Sixteen messages became twenty eight.
 
-I considered the narrower fix, which was to add Chinese to the list. I rejected
-it because the list is the mistake. The next script I had not thought of would
-have passed the same way.
-
-With a judge that could see, I could fix the thing itself. What shipped,
-measured with the same judge on both sides:
+That was enough to see the regression and to fix the thing itself. What
+shipped, measured with the same judge on both sides:
 
 ```
                               before         after
@@ -100,9 +94,14 @@ One loss is still open, and I shipped knowing it. A Thai or Burmese name typed
 into an English sentence now decides the language eight times in ten, where
 before it was two in ten. I can count it because the judge can see it.
 
-The code in this folder is that judge. Give it a reply, the scripts a right
-answer is written in, and the text that is right in any language. It counts
-every letter and shows the ones that should not be there.
+It was still a list, though. A reply in a script I had not listed, with a
+currency code in it, would have passed exactly as the Chinese one did. So the
+code in this folder is the judge I wrote afterwards, with the rule turned
+around. It does not list what is wrong. It says what a right answer is made of:
+the scripts it is written in, the text that is right in any language (the
+customer's own name, a product, an address), and what may sit beside them, like
+a currency code inside a Chinese sentence. Every other letter makes the answer
+wrong, and the verdict shows the letters.
 
 ## What generalises
 
