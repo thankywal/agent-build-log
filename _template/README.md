@@ -1,6 +1,6 @@
 # <one line: what broke, in plain words>
 
-> Layer: `wire` | `arguments` | `loop` | `budget` | `surface` | `prompt` | `transport`
+> Layer: `wire` | `arguments` | `loop` | `budget` | `surface` | `prompt` | `transport` | `eval`
 
 ## What happened
 

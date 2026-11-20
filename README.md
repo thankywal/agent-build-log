@@ -26,6 +26,7 @@ so you can lift a file and use it.
 | loop | [the limit the user read](notes/loop/the-limit-the-user-read) | two counters disagreed about the same instant, and the refusal reached the user as prose |
 | budget | [the jobs that were asleep](notes/budget/the-jobs-that-were-asleep) | timers inside a service that scaled to zero ran in a quarter of the day, and keeping them awake became the largest line on the bill |
 | prompt | [the schema the tool could not read](notes/prompt/the-schema-the-tool-could-not-read) | the prompt described the database with the application's rights, the tool queried with its own, and what the prompt taught was refused |
+| eval | [the judge that could not see the failure](notes/eval/the-judge-that-could-not-see-the-failure) | the judge listed the wrong answers I had thought of, a reply in a script that was not on the list passed, and the score went up while the product got worse |
 
 _(more as they happen)_
 
@@ -40,6 +41,7 @@ The spine is where a failure lives, not when it happened.
 - **surface**: how many tools the model can actually see
 - **prompt**: instructions that cannot all be obeyed
 - **transport**: getting the result to a person
+- **eval**: deciding whether an answer was right
 
 ## Adding an entry
 
